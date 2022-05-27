@@ -1,12 +1,12 @@
-const {v4 : uuidv4} = require('uuid')
+const { v4: uuidv4 } = require('uuid')
 const { Page, ComponentCategory, ComponentType } = require('./models')
 
 function getPageById(id) {
-  return Page.findByPk(id);
+  return Page.findByPk(id)
 }
 
 function getPageBySlug(slug) {
-  return Page.findOne({ where: { slug } });
+  return Page.findOne({ where: { slug } })
 }
 
 async function getComponentSelection() {
@@ -14,22 +14,24 @@ async function getComponentSelection() {
   const types = await ComponentType.findAll()
 
   return categories.map(category => {
-    const typesInCategory = types.filter(type => type.categoryId === category.id)
+    const typesInCategory = types.filter(
+      type => type.categoryId === category.id
+    )
     return {
       ...category.dataValues,
-      componentTypes: typesInCategory.map(type => type.dataValues)
+      componentTypes: typesInCategory.map(type => type.dataValues),
     }
   })
 }
 
-async function createPage({components, label, slug}) {
+async function createPage({ components, label, slug }) {
   await Page.sync()
   let componentsWithIds
 
   if (components) {
     componentsWithIds = components.map(component => ({
       ...component,
-      id: uuidv4()
+      id: uuidv4(),
     }))
   }
 
@@ -59,22 +61,26 @@ async function createComponentSchemas(schemas) {
     return {
       ...categories,
       id: categoryId,
-      componentTypes
+      componentTypes,
     }
   })
 
-  const categories = schemasWithIds.map(({label, order, id}) => ({
+  const categories = schemasWithIds.map(({ label, order, id }) => ({
     id,
     label,
-    order
+    order,
   }))
-  const types = schemasWithIds.map(({componentTypes}) => componentTypes).flat()
+  const types = schemasWithIds
+    .map(({ componentTypes }) => componentTypes)
+    .flat()
 
-  const categoriesResults = await createComponentCategories(categories)
-    .catch(err => console.log(err))
+  const categoriesResults = await createComponentCategories(categories).catch(
+    err => console.log(err)
+  )
   console.log(categoriesResults)
-  const typesResults = await createComponentTypes(types)
-    .catch(err => console.log(err))
+  const typesResults = await createComponentTypes(types).catch(err =>
+    console.log(err)
+  )
 
   return [categoriesResults, typesResults]
 }
@@ -84,5 +90,5 @@ module.exports = {
   createComponentSchemas,
   getComponentSelection,
   getPageById,
-  getPageBySlug
+  getPageBySlug,
 }

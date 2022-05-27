@@ -1,5 +1,6 @@
 {
-  "cSpell.words": [
-    "UUIDV"
-  ]
+  "cSpell.words": ["UUIDV"],
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
 }
