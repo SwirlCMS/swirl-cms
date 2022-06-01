@@ -1,4 +1,4 @@
-<svelte:options tag="epic-cms" />
+<svelte:options tag="swirl-cms" />
 
 <script>
   import { onMount } from 'svelte'
@@ -9,9 +9,9 @@
     e.preventDefault()
     open = !open
   }
-  const epicCmsElements = document.querySelectorAll('[data-epic-cms-id]')
-  console.log(epicCmsElements)
-  // Create a drop pad that will be attached to each epic-cms element
+  const swirlCmsElements = document.querySelectorAll('[data-swirl-cms-id]')
+  console.log(swirlCmsElements)
+  // Create a drop pad that will be attached to each swirl-cms element
   const dropPad = document.createElement('div')
   dropPad.classList.add('drop-pad')
   dropPad.style = `
@@ -31,8 +31,8 @@
   onMount(() => {
     if (!checkInit()) return
     console.log('Mount')
-    // Get all elements with data-epic-cms attribute
-    epicCmsElements.forEach(element => {
+    // Get all elements with data-swirl-cms attribute
+    swirlCmsElements.forEach(element => {
       const dropPadClone = dropPad.cloneNode(true)
       // Insert a drop pad after each element
       element.insertAdjacentElement('afterend', dropPadClone)
@@ -49,11 +49,11 @@
 
       dropPadClone.addEventListener('drop', e => {
         e.dataTransfer.dropEffect = 'move'
-        const data = e.dataTransfer.getData('epic-cms-id')
+        const data = e.dataTransfer.getData('swirl-cms-id')
         console.log('Element dropped ', data)
         dropPadClone.style.opacity = '0'
         dropPadClone.style.position = 'absolute'
-        // TODO: Make socket call to get the required component by epic-cms-id
+        // TODO: Make socket call to get the required component by swirl-cms-id
         // Insert the component just below the drop pad
         // Add drop pad to the bottom of that element too
       })
@@ -62,7 +62,7 @@
 
   function handleDragStart(e) {
     console.log('drag start')
-    e.dataTransfer.setData('epic-cms-id', e.target.id)
+    e.dataTransfer.setData('swirl-cms-id', e.target.id)
     e.dataTransfer.dropEffect = 'move'
   }
   function handleDragEnd(e) {
@@ -77,14 +77,14 @@
   {/if}
   <div class="components-drawer" class:open>
     <button class="toggle" on:click={handleClick}>X</button>
-    <h1>Epic-CMS</h1>
+    <h1>Swirl-CMS</h1>
     <h2>Edit schema</h2>
     <h2>Components</h2>
     <h3>Buttons</h3>
     <button
       id="button1"
       draggable="true"
-      data-epic-cms-id="button1#1234"
+      data-swirl-cms-id="button1#1234"
       on:dragstart={handleDragStart}
       on:dragend={handleDragEnd}
     >

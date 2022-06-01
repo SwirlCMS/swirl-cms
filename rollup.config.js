@@ -37,7 +37,7 @@ export default {
     sourcemap: true,
     format: 'iife',
     name: 'app',
-    file: 'public/build/epic-cms.js',
+    file: 'dist/swirl-cms.js',
   },
   plugins: [
     svelte({
