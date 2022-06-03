@@ -105,7 +105,7 @@
     bottom: 0;
     box-shadow: 0px -7px rgba(0, 0, 0, 0.8);
     background-color: #fff;
-    transition: bottom 0.3s ease-in-out;
+    transition: bottom 0.2s ease-in-out;
   }
 
   .components-drawer .toggle {
