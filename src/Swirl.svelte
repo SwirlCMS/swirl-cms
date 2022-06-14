@@ -73,10 +73,15 @@
 
 {#if init}
   {#if !open}
-    <div class="spacer" />
+    <div class="h-[400px]" />
   {/if}
-  <div class="components-drawer" class:open>
-    <button class="toggle" on:click={handleClick}>X</button>
+  <div
+    class="fixed bottom-0 w-full transition-all ease-in-out delay-150 h-[400px] shadow bg-gray-900/80 backdrop-blur-lg"
+    class:open
+  >
+    <button class="absolute bottom-[406px] left-1/2" on:click={handleClick}
+      >X</button
+    >
     <h1>Swirl-CMS</h1>
     <h2>Edit schema</h2>
     <h2>Components</h2>
@@ -94,27 +99,13 @@
   </div>
 {/if}
 
-<style>
-  .spacer {
-    height: 400px;
-  }
-  .components-drawer {
-    width: 100%;
-    height: 400px;
-    position: fixed;
-    bottom: 0;
-    box-shadow: 0px -7px rgba(0, 0, 0, 0.8);
-    background-color: #fff;
-    transition: bottom 0.2s ease-in-out;
-  }
+<style lang="postcss">
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-  .components-drawer .toggle {
-    position: absolute;
-    bottom: 406px;
-    left: 50vw;
-  }
-  .components-drawer.open {
-    bottom: -407px;
+  .open {
+    bottom: -400px;
   }
   *[draggable='true'] {
     cursor: move;

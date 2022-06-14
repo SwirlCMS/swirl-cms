@@ -1,6 +1,6 @@
 {
   "name": "@swirl-cms/swirl",
-  "version": "1.0.1-alpha",
+  "version": "1.0.2-alpha",
   "private": false,
   "source": "src/main.js",
   "main": "dist/swirl-cms.js",
@@ -15,21 +15,26 @@
     "start:server": "node server/server.js"
   },
   "devDependencies": {
+    "@rgossiaux/svelte-headlessui": "^1.0.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "autoprefixer": "^9",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "pg-hstore": "^2.3.4",
     "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "postcss": "^7",
     "prettier": "^2.6.2",
+    "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
-    "rollup": "^2.3.4",
     "sequelize": "^6.19.0",
     "sirv-cli": "^2.0.0",
     "svelte": "^3.0.0",
+    "svelte-preprocess": "^4.10.7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "uuid": "^8.3.2"
   }
 }

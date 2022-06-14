@@ -1,6 +1,7 @@
 import svelte from 'rollup-plugin-svelte'
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+import sveltePreprocess from 'svelte-preprocess'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 
@@ -46,6 +47,12 @@ export default {
         dev: !production,
         customElement: true,
       },
+      preprocess: sveltePreprocess({
+        sourceMap: !production,
+        postcss: {
+          plugins: [require('tailwindcss'), require('autoprefixer')],
+        },
+      }),
     }),
 
     // If you have external dependencies installed from
