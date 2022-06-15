@@ -42,6 +42,7 @@ export default {
   },
   plugins: [
     svelte({
+      include: /\.wc\.svelte$/,
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,
@@ -54,6 +55,7 @@ export default {
         },
       }),
     }),
+    svelte({ customElement: false, exclude: /\.wc\.svelte$/ }),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In

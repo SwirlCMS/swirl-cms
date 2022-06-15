@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["UUIDV"],
+  "cSpell.words": ["tailwindcss", "UUIDV"],
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   }

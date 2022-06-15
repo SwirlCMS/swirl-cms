@@ -1,4 +1,4 @@
-import App from './Swirl.svelte'
+import App from './Swirl.wc.svelte'
 
 const app = new App()
 

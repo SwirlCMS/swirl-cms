@@ -2,6 +2,13 @@
 
 <script>
   import { onMount } from 'svelte'
+  import {
+    Tab,
+    TabGroup,
+    TabList,
+    TabPanel,
+    TabPanels,
+  } from '@rgossiaux/svelte-headlessui'
   const QUERY_PARAM = 'swirl-cms'
   let init = false
   let open = false
@@ -73,16 +80,30 @@
 
 {#if init}
   {#if !open}
-    <div class="h-[400px]" />
+    <div class="h-[35vh]" />
   {/if}
   <div
-    class="fixed bottom-0 w-full transition-all ease-in-out delay-150 h-[400px] shadow bg-gray-900/80 backdrop-blur-lg"
+    class="container fixed bottom-0 left-0 right-0 mx-auto h-[35vh] max-w-[800px] rounded-t-xl bg-neutral-900/80 shadow backdrop-blur transition-all delay-150 ease-in-out"
     class:open
   >
-    <button class="absolute bottom-[406px] left-1/2" on:click={handleClick}
-      >X</button
+    <button
+      class="absolute bottom-[35vh] left-1/2 tracking-tighter"
+      on:click={handleClick}>==</button
     >
-    <h1>Swirl-CMS</h1>
+    <TabGroup>
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>Content 1</TabPanel>
+        <TabPanel>Content 2</TabPanel>
+        <TabPanel>Content 3</TabPanel>
+      </TabPanels>
+    </TabGroup>
+
+    <!-- <h1>Swirl-CMS</h1>
     <h2>Edit schema</h2>
     <h2>Components</h2>
     <h3>Buttons</h3>
@@ -95,7 +116,7 @@
     >
       Button
     </button>
-    <button>Button2</button>
+    <button>Button2</button> -->
   </div>
 {/if}
 
@@ -105,7 +126,7 @@
   @tailwind utilities;
 
   .open {
-    bottom: -400px;
+    bottom: -35vh;
   }
   *[draggable='true'] {
     cursor: move;
