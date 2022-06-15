@@ -1,6 +1,6 @@
 {
   "name": "@swirl-cms/swirl",
-  "version": "1.0.2-alpha",
+  "version": "1.2.0-alpha",
   "private": false,
   "source": "src/main.js",
   "main": "dist/swirl-cms.js",
