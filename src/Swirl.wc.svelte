@@ -92,9 +92,33 @@
     >
     <TabGroup>
       <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
+        <Tab let:selected
+          ><div
+            class={`${
+              selected ? 'border-b-2 border-pink-600 text-pink-600' : ''
+            } px-3.5 py-2`}
+          >
+            Add
+          </div></Tab
+        >
+        <Tab let:selected
+          ><div
+            class={`${
+              selected ? 'border-b-2 border-pink-600 text-pink-600' : ''
+            } px-3.5 py-2`}
+          >
+            Edit
+          </div></Tab
+        >
+        <Tab let:selected
+          ><div
+            class={`${
+              selected ? 'border-b-2 border-pink-600 text-pink-600' : ''
+            } px-3.5 py-2`}
+          >
+            Settings
+          </div></Tab
+        >
       </TabList>
       <TabPanels>
         <TabPanel>Content 1</TabPanel>
